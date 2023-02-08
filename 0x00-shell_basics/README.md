@@ -23,3 +23,9 @@ Files Description
 10-back: Change working directory to the previous one
 
 11-lists: List all files (hidden included) in the current directory, parent directory, and the /boot directory
+
+12-file_type: Print the file type for /tmp/iamafile
+
+13-symbolic_link: Creates a symbolic link to /bin/ls
+
+14-copy_html: Copies all HTML files that didn't previously exist to parent directory from working directory
