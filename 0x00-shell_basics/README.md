@@ -4,4 +4,6 @@ Files Description
 
 1-listit: Lists files and directories within the current directory
 
-2-bring_me_home: Changes currend directory to user's home directory
+2-bring_me_home: Changes current directory to user's home directory
+
+3-listfiles: Long format listing of files in the current directory
