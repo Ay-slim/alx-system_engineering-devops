@@ -11,3 +11,5 @@ Files Description
 4-listmorefiles: Lists all files and directories with their details including hidden
 
 5-listfilesdigitonly: Lists all files and dirs in long format with user and group ids displayed numerically
+
+6-firstdirectory: Creates a directory named my_first_directory in the tmp directory
