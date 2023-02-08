@@ -7,3 +7,5 @@ Files Description
 2-bring_me_home: Changes current directory to user's home directory
 
 3-listfiles: Long format listing of files in the current directory
+
+4-listmorefiles: Lists all files and directories with their details including hidden
