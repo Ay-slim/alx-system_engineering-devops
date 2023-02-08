@@ -9,3 +9,5 @@ Files Description
 3-listfiles: Long format listing of files in the current directory
 
 4-listmorefiles: Lists all files and directories with their details including hidden
+
+5-listfilesdigitonly: Lists all files and dirs in long format with user and group ids displayed numerically
