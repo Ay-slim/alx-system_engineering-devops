@@ -19,3 +19,5 @@ Files Description
 8-firstdelete: Deletes the newly moved betty file
 
 9-firstdirdeletion: Deletes /tmp/my_first_directory
+
+10-back: Change working directory to the previous one
