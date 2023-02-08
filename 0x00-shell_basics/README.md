@@ -13,3 +13,5 @@ Files Description
 5-listfilesdigitonly: Lists all files and dirs in long format with user and group ids displayed numerically
 
 6-firstdirectory: Creates a directory named my_first_directory in the tmp directory
+
+7-movethatfile: Moves the betty file from /tmp/ to /tmp/my_first_directory
