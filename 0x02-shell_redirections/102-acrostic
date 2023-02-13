@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -c 1,2 | tr -d '\n' | tr -d 'lonahro' | tr 'i' '\n'
+cut -c 1,2 | tr -d '\n' | tr -d 'lonahro' | tr 'i' '\n' | tr -d ' '
