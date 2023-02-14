@@ -1,2 +1,2 @@
 #!/bin/bash
-cat /etc/passwd | grep -n ''| grep -E '^\d*[13579]+:' | cut -d ':' -f 2-
+grep -n ''| grep -E '^\d*[13579]+:' | cut -d ':' -f 2-
