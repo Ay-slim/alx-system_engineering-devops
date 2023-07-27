@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# This script displays file names with the prefixes stripped
+for i in *
+do
+	name=$(echo "$i" | cut -d '-' -f 2-)
+	echo "$name"
+done
