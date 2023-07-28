@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 #Displays all processes for all users
-proc_list=$(ps ax -o user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command --forest)
+proc_list=$(ps ax --forest -o user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command)
 echo "USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND"
 echo "$proc_list"
