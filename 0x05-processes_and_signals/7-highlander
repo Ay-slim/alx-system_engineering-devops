@@ -1,14 +1,8 @@
 #!/usr/bin/env bash
 #Infinite print but listen for sigterm
 
-handle_sigterm() {
-	echo "I am invincible!!!"
-	exit 0
-}
-
-trap 'handle_sigterm' SIGTERM
-
 while ((1 == 1))
 do echo "To infinity and beyond"
 sleep 2
+trap 'echo "I am invincible!!!"' SIGTERM
 done
