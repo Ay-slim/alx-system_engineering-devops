@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Fix problems with Apache on Docker
+sudo systemctl start apache2
