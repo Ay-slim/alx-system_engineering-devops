@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Install nginx and redirect with 301
+sudo apt-get update -y
+sudo apt-get install -y nginx
+echo 'Hello World!' > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/404.html
+redirection="\\\n\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+notfound="\\\n\terror_page 404 /404.html;\n\n\tlocation = /404.html {\n\t\tinternal;\n\t}\n"
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup
+sudo sed -i "53i $redirection" /etc/nginx/sites-available/default
+sudo sed -i "53i $notfound" /etc/nginx/sites-available/default
+sudo service nginx restart
