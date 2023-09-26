@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Install nginx and redirect with 301
+# Include a 404 not found page if a non present route is visited
 sudo apt-get update -y
 sudo apt-get install -y nginx
 echo 'Hello World!' > /var/www/html/index.html
