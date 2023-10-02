@@ -6,4 +6,4 @@ sudo apt-get update -y
 sudo apt-get install haproxy=2.8.\*
 lb_config="\\\nfrontend basic_fe\n\tmode http\n\tbind *:80\n\tdefault_backend api_servers\n\nbackend api_servers\n\tmode http\n\tbalance roundrobin\n\tserver s1 100.25.15.3:80\n\tserver s2 35.174.205.51:80"
 sed -i "34i $lb_config" /etc/haproxy/haproxy.cfg
-sudo service haproxy start
+sudo service haproxy restart
