@@ -20,7 +20,7 @@ exec {'Replace sites available':
 }
 
 exec {'Replace sites available':
-  command  => 'sudo sed -i \"63i "\\\n\tadd_header X-Served-By \"$HOSTNAME\";\"" /etc/nginx/nginx.conf',
+  command  => 'sudo sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/include \/etc\/nginx\/sites-enabled\/\*;\n\tadd_header X-Served-By \"$HOST\";/" /etc/nginx/nginx.conf',
   provider => shell,
 }
 
