@@ -32,16 +32,23 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
 
-listen http_fe
-        bind *:80
-        http-request set-header X-Forwarded-Proto:\ http
-        balance roundrobin
-        server s1 100.25.15.3:80 check
-        server s2 35.174.205.51:80 check
+frontend www-http
+    bind   0.0.0.0:80
+    reqadd X-Forwarded-Proto:\ http
+    default_backend www-backend
 
-listen https_fe
-        bind *:443 ssl crt /etc/letsencrypt/live/www.ayooluwaadedipe.tech/privkey.pem
-        http-request set-header X-Forwarded-Proto:\ https
-        balance roundrobin
-        server s1 100.25.15.3:80 check
-        server s2 35.174.205.51:80 check
+frontend www-https
+    bind   0.0.0.0:443 ssl crt /etc/haproxy/certs/www.bdbnb.site.pem
+    reqadd X-Forwarded-Proto:\ https
+    acl    letsencrypt-acl path_beg /.well-known/acme-challenge/
+    use_backend letsencrypt-backend if letsencrypt-acl
+    default_backend www-backend
+
+backend www-backend
+    balance  roundrobin
+    redirect scheme https if !{ ssl_fc }
+    server 286782-web-01 100.25.15.3 check
+    server 286782-web-02 35.174.205.51 check
+
+backend letsencrypt-backend
+    server letsencrypt 127.0.0.1:54321
