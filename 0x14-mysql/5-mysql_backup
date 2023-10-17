@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A script to dump all MYSQL DBs and compress into a tar ball
+mysqldump -u root -p"$1" --all-databases > backup.sql
+tar -czvf "$(date +"%d-%m-%y").tar.gz" backup.sql
