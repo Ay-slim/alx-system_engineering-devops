@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 # Login with a given username and display it
-su "$1"
-whoami
+sudo -u "$1" whoami
