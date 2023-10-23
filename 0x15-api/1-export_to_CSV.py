@@ -20,7 +20,8 @@ def api_req_csv():
     csv_prep = list(map(
         lambda x: '"{}","{}","{}","{}"'.format(
             emp_id, u_name, x.get('completed'), x.get('title')), emp_todos))
-    with open('2.csv', mode='w', newline='') as f:
+    filename = '{}.csv'.format(emp_id)
+    with open(filename, mode='w', newline='') as f:
         writer = csv.writer(f, quotechar='', quoting=csv.QUOTE_NONE)
         for row in csv_prep:
             writer.writerow(row.split(','))
