@@ -20,6 +20,8 @@ def api_req():
     user_url = "https://jsonplaceholder.typicode.com/users/{}".format(emp_id)
     r_user = requests.get(user_url)
     u_name = r_user.json().get('name')
+    print("Employee {} is done with tasks({}/{})".format(
+        u_name, done_len, emp_len))
     for done in done_todos:
         print("\t {}".format(done.get('title')))
 
