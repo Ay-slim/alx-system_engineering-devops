@@ -66,10 +66,12 @@ def count_words(subreddit, word_list):
     if hot_titles is not None:
         word_occurence = words_in_array_of_sentences(
                 word_list, hot_titles, {})
-        print(dict(
+        sorted_dict = dict(
                 sorted(
                     word_occurence.items(), key=lambda item: (
-                        -item[1], item[0]))))
+                        -item[1], item[0])))
+        for key, value in sorted_dict.items():
+            print("{}: {}".format(key, value))
 
 
 if __name__ == "__main__":
