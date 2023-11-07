@@ -73,4 +73,4 @@ def count_words(subreddit, word_list):
 
 
 if __name__ == "__main__":
-    count_words(sys.argv[1], sys.argv[2].split(' '))
+    count_words(sys.argv[1], sys.argv[2])
