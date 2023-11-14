@@ -38,20 +38,25 @@ server {
 	#
 	# include snippets/snakeoil.conf;
 
-	root /var/www/html;
+	#root /var/www/html;
 
 	# Add index.php to the list if you are using PHP
-	index index.html index.htm index.nginx-debian.html;
+	#index index.html index.htm index.nginx-debian.html;
 
 	server_name _;
 
 	location / {
-		include proxy_params;
-		proxy_pass http://0.0.0.0:5003/2-hbnb/;
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
+		#try_files $uri $uri/ =404;
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5003/2-hbnb/;
 	}
+
+        location /airbnb-onepage/ {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
+        }
 
 	error_page 404 /404.html;
    
@@ -60,17 +65,13 @@ server {
 		index index.html;
 	}
 
-        location /airbnb-onepage/ {
-                include proxy_params;
-                proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
-        }
-
         location /airbnb-dynamic/number_odd_or_even/ {
                 include proxy_params;
                 proxy_pass http://0.0.0.0:5001/number_odd_or_even/;
         }
 
 	location /static {
+		proxy_pass http://0.0.0.0:5003;		
 	}
 
         location /api/ {
@@ -78,6 +79,10 @@ server {
                 proxy_pass http://0.0.0.0:5002/api/;
         }
 
+	#location /2-hbnb/ {
+        #        include proxy_params;
+        #        proxy_pass http://0.0.0.0:5003/2-hbnb/;
+	#}
 	# pass PHP scripts to FastCGI server
 	#
 	#location ~ \.php$ {
