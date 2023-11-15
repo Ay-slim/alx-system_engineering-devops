@@ -1,6 +1,6 @@
 # Stop 'too many files open' error
 
-exec {'sedstart':
+exec {'update-file-limit-restart':
   provider => shell,
-  command  => 'sudo sed -i "s/15/4000/" /etc/default/nginx;sudo service nginx restart'
+  command  => 'sudo sed -i "/^#ULIMIT=/{s/^#//}" /etc/default/nginx;sudo service nginx restart'
 }
