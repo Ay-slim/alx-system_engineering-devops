@@ -1,3 +1,17 @@
+### How to make the gunicorn.service file work
+1/ Copy the gunicorn.service file into the directory /etc/systemd/system/
+2/ Run the following commands in the terminal:
+sudo systemctl daemon-reload
+sudo systemctl start gunicorn.service
+sudo systemctl enable gunicorn.service
+3/ Check that the status of the gunicorn.service file execution:
+sudo systemctl status gunicorn.service 
+
+
+
+
+
+
 Tasks
 0. Set up development with Python
 mandatory
